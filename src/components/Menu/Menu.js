@@ -1,23 +1,26 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import { FaHome } from "react-icons/fa";
 import { HiTrendingUp } from "react-icons/hi";
 import { FiShuffle } from "react-icons/fi";
 
 export default function Menu() {
+  const navigate = useNavigate();
+
   return (
     <StyledMenu>
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/")}>
         <FaHome />
         Home
       </MenuItem>
 
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/top")}>
         <HiTrendingUp />
         Top
       </MenuItem>
 
-      <MenuItem>
+      <MenuItem onClick={() => navigate("/random")}>
         <FiShuffle />
         Random
       </MenuItem>
