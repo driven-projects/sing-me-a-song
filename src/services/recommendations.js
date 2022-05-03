@@ -24,3 +24,8 @@ export async function listTop() {
   const response = await api.get("/recommendations/top/10");
   return response.data;
 }
+
+export async function get(id = 'random') {
+  const response = await api.get(`/recommendations/${id}`);
+  return response.data;
+}
