@@ -41,6 +41,10 @@ const Input = styled.input`
   width: 100%;
   font-family: "Lexend Deca", sans-serif;
 
+  &:disabled {
+    opacity: .8;
+  }
+
   &::placeholder {
     color: #c4c4c4;
   }
@@ -54,4 +58,8 @@ const Button = styled.button`
   width: 59px;
   color: #fff;
   cursor: pointer;
+
+  &:disabled {
+    opacity: .8;
+  }
 `;
