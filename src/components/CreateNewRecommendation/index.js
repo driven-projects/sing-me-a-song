@@ -1,1 +1,3 @@
-export * from "./CreateNewRecommendation";
+import CreateNewRecommendation from "./CreateNewRecommendation";
+
+export default CreateNewRecommendation;
