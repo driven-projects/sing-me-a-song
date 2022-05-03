@@ -19,3 +19,8 @@ export async function downvote(id) {
   const response = await api.post(`/recommendations/${id}/downvote`);
   return response.data;
 }
+
+export async function listTop() {
+  const response = await api.get("/recommendations/top/10");
+  return response.data;
+}
