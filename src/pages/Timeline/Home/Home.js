@@ -38,6 +38,7 @@ export default function Home() {
             key={recommendation.id}
             {...recommendation}
             onUpvote={() => listRecommendations()}
+            onDownvote={() => listRecommendations()}
           />
         ))
       }
