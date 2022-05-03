@@ -1,11 +1,15 @@
 import styled from "styled-components";
-import ReactPlayer from "react-player";
 import { useEffect } from "react";
 
+import ReactPlayer from "react-player";
+import { GoArrowUp, GoArrowDown } from "react-icons/go";
+
 import useUpvoteRecommendation from "../../hooks/api/useUpvoteRecommendation";
+import useDownvoteRecommendation from "../../hooks/api/useDownvoteRecommendation";
 
 export default function Recommendation({ name, youtubeLink, score, id, onUpvote = () => 0, onDownvote = () => 0 }) {
   const { upvoteRecommendation, errorUpvotingRecommendation } = useUpvoteRecommendation();
+  const { downvoteRecommendation, errorDownvotingRecommendation } = useDownvoteRecommendation();
 
   const handleUpvote = async () => {
     await upvoteRecommendation(id);
@@ -13,7 +17,7 @@ export default function Recommendation({ name, youtubeLink, score, id, onUpvote 
   };
 
   const handleDownvote = async () => {
-    await upvoteRecommendation(id);
+    await downvoteRecommendation(id);
     onDownvote();
   };
 
@@ -23,13 +27,21 @@ export default function Recommendation({ name, youtubeLink, score, id, onUpvote 
     }
   }, [errorUpvotingRecommendation]);
 
+  useEffect(() => {
+    if (errorDownvotingRecommendation) {
+      alert("Error downvoting recommendation!");
+    }
+
+  }, [errorDownvotingRecommendation]);
+
   return (
     <Container>
       <Row>{name}</Row>
       <ReactPlayer url={youtubeLink} width="100%" height="100%" />
       <Row>
-        <button onClick={handleDownvote}>upvote</button>
+        <GoArrowUp size="24px" onClick={handleUpvote} />
         {score}
+        <GoArrowDown size="24px" onClick={handleDownvote} />
       </Row>
     </Container>
   );
@@ -47,4 +59,8 @@ const Container = styled.article`
 
 const Row = styled.div`
   padding: 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 `;
