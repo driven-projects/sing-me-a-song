@@ -13,6 +13,7 @@ export default function CreateNewRecommendation({ onCreateNewRecommendation = ()
       link
     });
     setLink("");
+    setName("");
   }
   
   return (
