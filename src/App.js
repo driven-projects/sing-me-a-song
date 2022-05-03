@@ -17,6 +17,7 @@ const LazyWrapper = (Component) => (props) => (
 
 const Timeline = LazyWrapper(lazy(() => import("./pages/Timeline")));
 const Home = LazyWrapper(lazy(() => import("./pages/Timeline/Home")));
+const Top = LazyWrapper(lazy(() => import("./pages/Timeline/Top")));
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Timeline />}>
           <Route path="/" element={<Home />} />
+          <Route path="/top" element={<Top />} />
           <Route path="*" element={<div>Not found!</div>} />
         </Route>
       </Routes>
