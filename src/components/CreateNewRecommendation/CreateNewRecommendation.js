@@ -3,13 +3,23 @@ import styled from "styled-components";
 
 import { IoReturnUpForwardOutline } from "react-icons/io5";
 
-export default function CreateNewRecommendation({ onCreateNewRecommendation = () => 0 }) {
+export default function CreateNewRecommendation({ onCreateNewRecommendation = () => 0, disabled = false }) {
+  const [name, setName] = useState("");
   const [link, setLink] = useState("");
+
+  const handleCreateRecommendation = () => {
+    onCreateNewRecommendation({
+      name,
+      link
+    });
+    setLink("");
+  }
   
   return (
     <Container>
-      <Input type="text" placeholder="https://youtu.be/..." value={link} onChange={e => setLink(e.target.value)} />
-      <Button onClick={() => onCreateNewRecommendation(link)}>
+      <Input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} disabled={disabled} />
+      <Input type="text" placeholder="https://youtu.be/..." value={link} onChange={e => setLink(e.target.value)} disabled={disabled} />
+      <Button onClick={() => handleCreateRecommendation()} disabled={disabled}>
         <IoReturnUpForwardOutline size="24px" color="#fff" />
       </Button>
     </Container>
@@ -19,6 +29,7 @@ export default function CreateNewRecommendation({ onCreateNewRecommendation = ()
 const Container = styled.div`
   display: flex;
   gap: 9px;
+  margin-bottom: 15px;
 `;
 
 const Input = styled.input`
