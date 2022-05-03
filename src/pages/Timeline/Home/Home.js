@@ -25,7 +25,7 @@ export default function Home() {
     }
   }, [creatingRecommendationError]);
 
-  if (loadingRecommendations || !recommendations) {
+  if ((loadingRecommendations && !recommendations) || !recommendations) {
     return <div>Loading...</div>;
   }
 
@@ -34,7 +34,11 @@ export default function Home() {
       <CreateNewRecommendation disabled={loadingCreatingRecommendation} onCreateNewRecommendation={handleCreateRecommendation} />
       {
         recommendations.map(recommendation => (
-          <Recommendation key={recommendation.id} {...recommendation} />
+          <Recommendation
+            key={recommendation.id}
+            {...recommendation}
+            onUpvote={() => listRecommendations()}
+          />
         ))
       }
 
