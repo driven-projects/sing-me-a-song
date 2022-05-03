@@ -16,4 +16,5 @@ const StyledHeader = styled.header`
   gap: 8px;
   font-size: 20px;
   text-transform: lowercase;
+  font-weight: 400;
 `;
