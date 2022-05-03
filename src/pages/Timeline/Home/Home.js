@@ -4,6 +4,7 @@ import useRecommendations from "../../../hooks/api/useRecommendations";
 import useCreateRecommendation from "../../../hooks/api/useCreateRecommendation";
 
 import CreateNewRecommendation from "../../../components/CreateNewRecommendation";
+import Recommendation from "../../../components/Recommendation";
 
 export default function Home() {
   const { recommendations, loadingRecommendations, listRecommendations } = useRecommendations();
@@ -33,10 +34,7 @@ export default function Home() {
       <CreateNewRecommendation disabled={loadingCreatingRecommendation} onCreateNewRecommendation={handleCreateRecommendation} />
       {
         recommendations.map(recommendation => (
-          <div key={recommendation.id}>
-            {recommendation.name}
-            {recommendation.youtubeLink}
-          </div>
+          <Recommendation key={recommendation.id} {...recommendation} />
         ))
       }
 
