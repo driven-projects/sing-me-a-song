@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "plugins": ["react"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "import/prefer-default-export": "off",
+    "jsx-quotes": ["error", "prefer-single"]
+  }
+}
