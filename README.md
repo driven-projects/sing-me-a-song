@@ -3,4 +3,4 @@ Know the feeling that you are being stalked by google, spotify, youtube algorith
 that feeling is passed with sing-me-a-song, here you can share the good stuff with friends and everyone contribute to make a safe and algorythm clean space. 
 PS: Good stuff = Music. 
 
-<img src="./Gravacao_de_Tela_2022-05-03_as_18.05.57.mov" alt="GIF"> 
+![GIF](./Gravacao_de_Tela_2022-05-03_as_18.05.57.mov)
