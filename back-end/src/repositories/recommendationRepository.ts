@@ -18,7 +18,7 @@ function findAll(findAllWhere?: FindAllWhere) {
 
   return prisma.recommendation.findMany({
     where: filter,
-    orderBy: { id: "desc" }
+    orderBy: { id: "desc" },
   });
 }
 
@@ -54,7 +54,7 @@ function findByName(name: string) {
 }
 
 async function updateScore(id: number, operation: "increment" | "decrement") {
-  await prisma.recommendation.update({
+  return prisma.recommendation.update({
     where: { id },
     data: {
       score: { [operation]: 1 },
