@@ -8,7 +8,7 @@ async function insert(req: Request, res: Response) {
   if (validation.error) {
     throw wrongSchemaError();
   }
-
+  
   await recommendationService.insert(req.body);
 
   res.sendStatus(201);

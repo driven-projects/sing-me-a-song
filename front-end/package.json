@@ -17,10 +17,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "./node_modules/.bin/cypress",
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -41,16 +42,15 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "cypress": "^9.6.0",
-    "eslint-plugin-cypress": "^2.12.1"
-=======
+    "@faker-js/faker": "^6.3.1",
     "babel-eslint": "^10.1.0",
+    "cypress": "^9.6.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
+    "faker": "^6.6.6",
     "prettier": "^2.6.2"
->>>>>>> main
   }
 }

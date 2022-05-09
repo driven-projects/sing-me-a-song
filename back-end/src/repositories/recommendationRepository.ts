@@ -1,3 +1,4 @@
+
 import { Prisma } from "@prisma/client";
 import { prisma } from "../database.js";
 import { CreateRecommendationData } from "../services/recommendationsService.js";
@@ -18,7 +19,8 @@ function findAll(findAllWhere?: FindAllWhere) {
 
   return prisma.recommendation.findMany({
     where: filter,
-    orderBy: { id: "desc" }
+    orderBy: { id: "desc" },
+    take: 10
   });
 }
 
@@ -47,8 +49,14 @@ function find(id: number) {
   });
 }
 
+function findByName(name: string) {
+  return prisma.recommendation.findUnique({
+    where: { name },
+  });
+}
+
 async function updateScore(id: number, operation: "increment" | "decrement") {
-  await prisma.recommendation.update({
+  return prisma.recommendation.update({
     where: { id },
     data: {
       score: { [operation]: 1 },
@@ -62,11 +70,17 @@ async function remove(id: number) {
   });
 }
 
+async function truncate() {
+  await prisma.$executeRaw`TRUNCATE TABLE recommendations;`
+}
 export const recommendationRepository = {
   create,
   findAll,
   find,
+  findByName,
   updateScore,
   getAmountByScore,
   remove,
+  truncate
 };
+

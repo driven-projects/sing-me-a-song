@@ -1,4 +1,5 @@
-import { Suspense, lazy, Component } from 'react'
+/* eslint-disable react/display-name */
+import { Suspense, lazy } from 'react'
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 

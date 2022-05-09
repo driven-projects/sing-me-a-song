@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-
-import Header from "../../components/Header/Header";
-import Menu from "../../components/Menu/Menu";
+import { Outlet } from 'react-router-dom'
+import React from 'react'
+import Header from '../../components/Header/Header'
+import Menu from '../../components/Menu/Menu'
 
 export default function Timeline() {
   return (
@@ -10,5 +10,5 @@ export default function Timeline() {
       <Menu />
       <Outlet />
     </>
-  );
+  )
 }

@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('resetDatabase', () => {
+  cy.request('POST', 'http://localhost:5000/reset-database')
+})
+Cypress.Commands.add('createRecommendation', () => {
+  const data = {
+    name: faker.music.genre(),
+    youtubeLink: 'https://www.youtube.com/watch?v=NZoRlVi3MjQ&t=105s',
+  }
+  cy.request('POST', 'http://localhost:5000/recommendations', data)
+})

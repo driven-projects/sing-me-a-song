@@ -1,16 +1,16 @@
-import useRecommendation from "../../../hooks/api/useRecommendation";
-import React from "react";
-import Recommendation from "../../../components/Recommendation";
+import useRecommendation from '../../../hooks/api/useRecommendation'
+import React from 'react'
+import Recommendation from '../../../components/Recommendation'
 
 export default function Random() {
-  const { recommendation, updateRecommendation } = useRecommendation();
+  const { recommendation, updateRecommendation } = useRecommendation()
 
   const handleUpdate = () => {
-    updateRecommendation(recommendation.id);
-  };
+    updateRecommendation(recommendation.id)
+  }
 
   if (!recommendation) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 
   return (
@@ -19,5 +19,5 @@ export default function Random() {
       onUpvote={handleUpdate}
       onDownvote={handleUpdate}
     />
-  );
+  )
 }

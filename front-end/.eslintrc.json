@@ -7,7 +7,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "prettier",
-    "prettier/react"
+    "plugin:cypress/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -17,11 +17,13 @@
     "sourceType": "module",
     "parser": "babel-eslint"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "cypress"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": 0,
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/prefer-default-export": "off",
-    "jsx-quotes": ["error", "prefer-single"]
-  }
+    "jsx-quotes": ["error", "prefer-single"],
+    "jest/expect-expect": "off"
+  
+}
 }
