@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "test": "dotenv -e .env.test prisma migrate reset && cross-env NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
   "dependencies": {
     "@prisma/client": "^3.13.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
