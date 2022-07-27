@@ -12,7 +12,7 @@ export const recommendationFactory = {
     }
   },
 
-  isertData(data: CreateRecommendationData) {
+  insertData(data: CreateRecommendationData) {
     return prisma.recommendation.create({ data })
   },
 }
