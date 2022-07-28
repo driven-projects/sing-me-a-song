@@ -7,7 +7,7 @@ export const paths = {
     downVote(id: number) {
       return `/recommendations/${id}/downvote`
     },
-    getAll: "/recommendations",
+    getTen: "/recommendations",
     getById(id: number) {
       return `/recommendations/${id}`
     },
