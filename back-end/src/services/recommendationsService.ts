@@ -16,7 +16,6 @@ async function insert(createRecommendationData: CreateRecommendationData) {
 
 async function upvote(id: number) {
   await getByIdOrFail(id);
-
   await recommendationRepository.updateScore(id, "increment");
 }
 
@@ -82,6 +81,11 @@ function getScoreFilter(random: number) {
   return "lte";
 }
 
+async function reset() {
+  console.log('calling repository reset')
+  await recommendationRepository.reset();
+}
+
 export const recommendationService = {
   insert,
   upvote,
@@ -90,4 +94,5 @@ export const recommendationService = {
   get,
   getById: getByIdOrFail,
   getTop,
+  reset
 };

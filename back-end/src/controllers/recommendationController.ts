@@ -55,6 +55,15 @@ async function getById(req: Request, res: Response) {
   res.send(recommendation);
 }
 
+async function reset(req: Request, res: Response) {
+
+  console.log('reseting...')
+  await recommendationService.reset();
+  console.log('reseted')
+  
+  res.sendStatus(200);
+}
+
 export const recommendationController = {
   insert,
   upvote,
@@ -63,4 +72,6 @@ export const recommendationController = {
   getTop,
   get,
   getById,
+  reset
 };
+
