@@ -37,7 +37,6 @@ async function getByIdOrFail(id: number) {
 }
 
 async function get() {
-  console.log('test 1!');
   return recommendationRepository.findAll();
 }
 
@@ -59,16 +58,12 @@ async function getRandom() {
 }
 
 async function getByScore(scoreFilter: "gt" | "lte") {
-  console.log('test 2!');
   const recommendations = await recommendationRepository.findAll({
     score: 10,
     scoreFilter,
   });
   
-  console.log('test 3!');
   const allRecommendations = await recommendationRepository.findAll();
-
-  // console.log(recommendations, allRecommendations);
 
   if (recommendations.length > 0) {
     return recommendations;

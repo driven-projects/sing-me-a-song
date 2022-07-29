@@ -19,44 +19,20 @@ afterAll(async () => {
 });
 
 
-/*
-
-REPOSITORY FUNCTIONS:
-    create
-    findAll
-    find
-    findByName
-    updateScore
-    getAmountByScore
-    remove
-    reset
-
-*/
-
-
 describe("Recommendations Service", () => {
 
     const recomendationBody = {
-        valid: recommendationsFactory.createBody(),
+        valid: recommendationsFactory.createRecommendationBody(),
         invalid: {
             null: {name: null, youtubeLink: null},
             empty: {name: "", youtubeLink: ""},
         },
     }
 
-    const recommendations: Recommendation[] = [
-        {id: 1, name: "Recommendation 1", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 5},
-        {id: 2, name: "Recommendation 2", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 2},
-        {id: 3, name: "Recommendation 3", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 17},
-        {id: 4, name: "Recommendation 4", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 3},
-        {id: 5, name: "Recommendation 5", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 11},
-        {id: 6, name: "Recommendation 6", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 1},
-        {id: 7, name: "Recommendation 7", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: -4},
-        {id: 8, name: "Recommendation 8", youtubeLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", score: 20},
-    ]
+    const recommendations = recommendationsFactory.createRecommendationList(10);
 
     jest.spyOn(recommendationRepository, "create").mockImplementation((): any => {
-        const recommendation = recommendationsFactory.createBody();
+        const recommendation = recommendationsFactory.createRecommendationBody();
         return {id: 1, ...recommendation,score: 0}
     });
 

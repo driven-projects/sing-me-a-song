@@ -1,47 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659132696744" clover="3.2.0">
-  <project timestamp="1659132696745" name="All files">
-    <metrics statements="71" coveredstatements="42" conditionals="28" coveredconditionals="13" methods="26" coveredmethods="13" elements="125" coveredelements="68" complexity="0" loc="71" ncloc="71" packages="5" files="5" classes="5"/>
+<coverage generated="1659137975676" clover="3.2.0">
+  <project timestamp="1659137975676" name="All files">
+    <metrics statements="124" coveredstatements="108" conditionals="31" coveredconditionals="23" methods="41" coveredmethods="35" elements="196" coveredelements="166" complexity="0" loc="124" ncloc="124" packages="9" files="11" classes="11"/>
     <package name="src">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <file name="app.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/app.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
       <file name="database.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/database.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="src.repositories">
-      <metrics statements="22" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="9" coveredmethods="0"/>
-      <file name="recommendationRepository.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/repositories/recommendationRepository.ts">
-        <metrics statements="22" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="9" coveredmethods="0"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="48" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
+    <package name="src.controllers">
+      <metrics statements="26" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="7"/>
+      <file name="recommendationController.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/controllers/recommendationController.ts">
+        <metrics statements="26" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="7"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="77" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="89" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="100" count="0" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middlewares">
+      <metrics statements="4" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="errorHandlerMiddleware.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/middlewares/errorHandlerMiddleware.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="16" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.repositories">
+      <metrics statements="13" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="9" coveredmethods="8"/>
+      <file name="recommendationRepository.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/repositories/recommendationRepository.ts">
+        <metrics statements="13" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="9" coveredmethods="8"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="38" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="63" count="3" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.routers">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="recommendationRouter.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/routers/recommendationRouter.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="testRouter.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/routers/testRouter.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.schemas">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="recommendationsSchemas.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/schemas/recommendationsSchemas.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.services">
-      <metrics statements="35" coveredstatements="35" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="10"/>
+      <metrics statements="32" coveredstatements="31" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="9"/>
       <file name="recommendationsService.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/services/recommendationsService.ts">
-        <metrics statements="35" coveredstatements="35" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="10"/>
+        <metrics statements="32" coveredstatements="31" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="9"/>
         <line num="8" count="2" type="stmt"/>
         <line num="11" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="1" type="stmt"/>
@@ -56,51 +127,63 @@
         <line num="35" count="7" type="cond" truecount="1" falsecount="0"/>
         <line num="36" count="4" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="45" count="2" type="stmt"/>
-        <line num="49" count="5" type="stmt"/>
-        <line num="50" count="5" type="stmt"/>
-        <line num="52" count="5" type="stmt"/>
-        <line num="53" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="57" count="4" type="stmt"/>
-        <line num="58" count="4" type="stmt"/>
-        <line num="62" count="5" type="stmt"/>
-        <line num="63" count="5" type="stmt"/>
-        <line num="68" count="5" type="stmt"/>
-        <line num="69" count="5" type="stmt"/>
-        <line num="73" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="74" count="2" type="stmt"/>
-        <line num="77" count="3" type="stmt"/>
-        <line num="82" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="85" count="3" type="stmt"/>
-        <line num="89" count="1" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="68" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="77" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="10" coveredstatements="2" conditionals="20" coveredconditionals="6" methods="6" coveredmethods="2"/>
+      <metrics statements="10" coveredstatements="8" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="5"/>
       <file name="errorUtils.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/src/utils/errorUtils.ts">
-        <metrics statements="10" coveredstatements="2" conditionals="20" coveredconditionals="6" methods="6" coveredmethods="2"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="1"/>
+        <metrics statements="10" coveredstatements="8" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="5"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="12" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="20" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="24" count="8" type="cond" truecount="3" falsecount="1"/>
+        <line num="20" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="24" count="4" type="cond" truecount="3" falsecount="1"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="32" count="1" type="cond" truecount="3" falsecount="1"/>
       </file>
     </package>
     <package name="tests.factories">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
       <file name="recomendations.factory.ts" path="/Users/estevamfurtado/Desktop/DRIVEN/projeto21-singmeasong/back-end/tests/factories/recomendations.factory.ts">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
+        <metrics statements="17" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+        <line num="7" count="27" type="stmt"/>
+        <line num="11" count="34" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="27" count="32" type="stmt"/>
+        <line num="29" count="32" type="stmt"/>
+        <line num="33" count="32" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="27" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="59" count="3" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
       </file>
     </package>
   </project>

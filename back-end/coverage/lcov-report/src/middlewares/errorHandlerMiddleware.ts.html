@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utils/errorUtils.ts</title>
+    <title>Code coverage report for src/middlewares/errorHandlerMiddleware.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utils</a> errorUtils.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/middlewares</a> errorHandlerMiddleware.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.57% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/14</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">60% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/20</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
@@ -84,19 +84,13 @@
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,62 +99,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">type AppErrorTypes = "conflict" | "not_found" | "unauthorized" | "wrong_schema";
-export interface AppError {
-  type: AppErrorTypes;
-  message: string;
-}
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { NextFunction, Request, Response } from "express";
+import {
+  AppError,
+  errorTypeToStatusCode,
+  isAppError,
+} from "../utils/errorUtils.js";
 &nbsp;
-export function isAppError(error: object): error is AppError {
-  return (error as AppError).type !== undefined;
-}
+export function errorHandlerMiddleware(
+  err: Error | AppError,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  console.log(err);
 &nbsp;
-export function errorTypeToStatusCode(type: AppErrorTypes) {
-  if (type === "conflict") return 409;
-  if (type === "not_found") return 404;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (type === "unauthorized") <span class="cstat-no" title="statement not covered" >return 401;</span>
-  if (type === "wrong_schema") return 422;
-<span class="cstat-no" title="statement not covered" >  return 400;</span>
-}
+  if (isAppError(err)) {
+    return res.status(errorTypeToStatusCode(err.type)).send(err.message);
+  }
 &nbsp;
-export function conflictError(message?: string): AppError {
-  return { type: "conflict", message: message ?? <span class="branch-1 cbranch-no" title="branch not covered" >"" </span>};
-}
-&nbsp;
-export function notFoundError(message?: string): AppError {
-  return { type: "not_found", message: <span class="branch-0 cbranch-no" title="branch not covered" >message </span>?? "" };
-}
-&nbsp;
-export function <span class="fstat-no" title="function not covered" >unauthorizedError(</span>message?: string): AppError {
-<span class="cstat-no" title="statement not covered" >  return { type: "unauthorized", message: message ?? "" };</span>
-}
-&nbsp;
-export function wrongSchemaError(message?: string): AppError {
-  return { type: "wrong_schema", message: <span class="branch-0 cbranch-no" title="branch not covered" >message </span>?? "" };
+<span class="cstat-no" title="statement not covered" >  return res.sendStatus(500);</span>
 }
 &nbsp;</pre></td></tr></table></pre>
 
