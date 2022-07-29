@@ -21,12 +21,10 @@ async function upvote(id: number) {
 
 async function downvote(id: number) {
   await getByIdOrFail(id);
-
   const updatedRecommendation = await recommendationRepository.updateScore(
     id,
     "decrement"
   );
-
   if (updatedRecommendation.score < -5) {
     await recommendationRepository.remove(id);
   }
@@ -35,11 +33,11 @@ async function downvote(id: number) {
 async function getByIdOrFail(id: number) {
   const recommendation = await recommendationRepository.find(id);
   if (!recommendation) throw notFoundError();
-
   return recommendation;
 }
 
 async function get() {
+  console.log('test 1!');
   return recommendationRepository.findAll();
 }
 
@@ -61,28 +59,33 @@ async function getRandom() {
 }
 
 async function getByScore(scoreFilter: "gt" | "lte") {
+  console.log('test 2!');
   const recommendations = await recommendationRepository.findAll({
     score: 10,
     scoreFilter,
   });
+  
+  console.log('test 3!');
+  const allRecommendations = await recommendationRepository.findAll();
+
+  // console.log(recommendations, allRecommendations);
 
   if (recommendations.length > 0) {
     return recommendations;
   }
-
-  return recommendationRepository.findAll();
+  else {
+    return allRecommendations;
+  }
 }
 
 function getScoreFilter(random: number) {
   if (random < 0.7) {
     return "gt";
   }
-
   return "lte";
 }
 
 async function reset() {
-  console.log('calling repository reset')
   await recommendationRepository.reset();
 }
 
