@@ -1,8 +1,6 @@
-import { Recommendation } from "@prisma/client"
-import path from "path"
 import supertest from "supertest"
-import app from "../app"
-import { prisma } from "../database"
+import app from "../src/app"
+import { prisma } from "../src/database"
 import { recommendationFactory } from "./factories/recommendationFactory"
 import {
   createScenarioWithNAmountAndDistribuitedScore,

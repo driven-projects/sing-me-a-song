@@ -1,8 +1,7 @@
 import { faker } from "@faker-js/faker"
 import { Recommendation } from "@prisma/client"
-import randomUrlGen from "random-youtube-music-video"
 
-import { prisma } from "../../database"
+import { prisma } from "../../src/database"
 
 type FactoryRecommendationData = Omit<Recommendation, "id">
 

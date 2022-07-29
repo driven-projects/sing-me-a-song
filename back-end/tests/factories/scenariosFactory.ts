@@ -1,4 +1,4 @@
-import { prisma } from "../../database"
+import { prisma } from "../../src/database"
 import { recommendationFactory } from "./recommendationFactory"
 
 export async function deleteAllData() {
