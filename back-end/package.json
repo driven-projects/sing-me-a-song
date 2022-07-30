@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.ts",
+    "dev:test": "dotenv -e .env.test nodemon src/server.ts",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- --coverage -i",
     "test-full": "dotenv -e .env.test prisma migrate reset && cross-env NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- --coverage -i"
   },

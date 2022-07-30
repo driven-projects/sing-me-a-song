@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("clearDatabase", () => {
+  cy.request("POST", "http://localhost:5000/tests/reset-database").then((res) =>
+    cy.log(res),
+  )
+})
+
+Cypress.Commands.add("addSong", (songData) => {
+  cy.request("POST", "http://localhost:5000/recommendations", songData)
+    .as("addSong")
+    .then((res) => cy.log(res))
+  cy.wait("@addSong")
+})
