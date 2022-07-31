@@ -30,9 +30,22 @@ Cypress.Commands.add("clearDatabase", () => {
   )
 })
 
+Cypress.Commands.add("seedDatabase", (amount, highScorePercentage) => {
+  cy.request(
+    "POST",
+    `http://localhost:5000/tests/seed-database?amount=${amount}&highScorePercentage=${highScorePercentage}`,
+  ).then((res) => cy.log(res))
+})
+
 Cypress.Commands.add("addSong", (songData) => {
-  cy.request("POST", "http://localhost:5000/recommendations", songData)
-    .as("addSong")
-    .then((res) => cy.log(res))
-  cy.wait("@addSong")
+  cy.request("POST", "http://localhost:5000/recommendations", songData).then(
+    (res) => cy.log(res),
+  )
+})
+
+Cypress.Commands.add("addLowScoreSong", (score) => {
+  cy.request(
+    "POST",
+    `http://localhost:5000/tests/seed-lowScoreSong?score=${score}`,
+  ).then((res) => cy.log(res))
 })
