@@ -1,14 +1,14 @@
 import supertest from "supertest"
 import app from "../src/app"
 import { prisma } from "../src/database"
-import { recommendationFactory } from "./factories/recommendationFactory"
+import { recommendationFactory } from "../src/factories/recommendationFactory"
 import {
   createScenarioWithNAmountAndDistribuitedScore,
   createScenarioWithNRecommenations,
   createScenarioWithOneRecommendation,
   createScenarioWithRecommendationDownVoted,
   deleteAllData,
-} from "./factories/scenariosFactory"
+} from "../src/factories/scenariosFactory"
 import { paths } from "./utils/apiPaths"
 
 const agent = supertest(app)

@@ -1,14 +1,14 @@
 import { faker } from "@faker-js/faker"
 import { Recommendation } from "@prisma/client"
 
-import { prisma } from "../../src/database"
+import { prisma } from "../database.js"
 
 type FactoryRecommendationData = Omit<Recommendation, "id">
 
 export const recommendationFactory = {
   createData(
     name = "Test name",
-    youtubeLink = "https://youtu.be/d8zXQA5Za9M",
+    youtubeLink = "https://www.youtube.com/watch?v=d8zXQA5Za9M",
     score = 0,
   ): FactoryRecommendationData {
     return {
@@ -18,12 +18,9 @@ export const recommendationFactory = {
     }
   },
   createRandomData(score = 0): FactoryRecommendationData {
-    const youtubeUrl = `https://www.youtube.com/watch?v=${faker.random.alphaNumeric(
-      10,
-    )}`
     return {
       name: faker.random.alphaNumeric(10),
-      youtubeLink: youtubeUrl,
+      youtubeLink: "https://www.youtube.com/watch?v=d8zXQA5Za9M",
       score,
     }
   },

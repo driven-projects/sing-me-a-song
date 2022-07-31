@@ -1,5 +1,5 @@
-import { prisma } from "../../src/database"
-import { recommendationFactory } from "./recommendationFactory"
+import { prisma } from "../database.js"
+import { recommendationFactory } from "./recommendationFactory.js"
 
 export async function deleteAllData() {
   return prisma.$transaction([
@@ -16,13 +16,11 @@ export async function createScenarioWithOneRecommendation() {
   return { recommendation: createdRecommendation }
 }
 
-export async function createScenarioWithRecommendationDownVoted(
-  amount: number,
-) {
+export async function createScenarioWithRecommendationDownVoted(score: number) {
   const recommendationData = recommendationFactory.createData()
   const createdRecommendation = await recommendationFactory.insertData({
     ...recommendationData,
-    score: amount,
+    score: score,
   })
 
   return { recommendation: createdRecommendation }
