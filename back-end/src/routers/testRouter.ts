@@ -1,9 +1,12 @@
 import { Router } from "express";
-import { recommendationController } from "../controllers/recommendationController.js";
+import { testController } from "../controllers/e2eTestController.js";
+
+
 
 
 const testRouter = Router();
 
-testRouter.post("/reset", recommendationController.reset);
+testRouter.post("/reset", testController.reset);
+testRouter.post("/populate/:amount", testController.populate);
 
 export default testRouter;

@@ -80,6 +80,18 @@ async function reset() {
   await prisma.recommendation.deleteMany({});
 }
 
+interface PopulateRecommendationData {
+  name: string;
+  youtubeLink: string;
+  score: number;
+}
+
+async function populate(createRecommendations: PopulateRecommendationData[]) {
+  await prisma.recommendation.createMany({
+    data: createRecommendations,
+  });
+}
+
 export const recommendationRepository = {
   create,
   findAll,
@@ -89,4 +101,5 @@ export const recommendationRepository = {
   getAmountByScore,
   remove,
   reset,
+  populate
 };
