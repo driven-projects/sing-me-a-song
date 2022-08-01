@@ -24,7 +24,12 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import recommendationsFactory from "../factories/recomendations.factory";
+
 Cypress.Commands.add("resetDatabase", () => {
-    cy.request('POST', "http://localhost:5000/tests/reset").as('resetDatabase');
-    cy.wait("@resetDatabase");
+    cy.request('POST', "http://localhost:5000/tests/reset")
+});
+
+Cypress.Commands.add("populateDatabase", () => {
+    cy.request('POST', "http://localhost:5000/tests/populate/5")
 });

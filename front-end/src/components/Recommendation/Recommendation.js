@@ -7,11 +7,11 @@ import { GoArrowUp, GoArrowDown } from "react-icons/go";
 import useUpvoteRecommendation from "../../hooks/api/useUpvoteRecommendation";
 import useDownvoteRecommendation from "../../hooks/api/useDownvoteRecommendation";
 
-export default function Recommendation({ name, youtubeLink, score, id, onUpvote = () => 0, onDownvote = () => 0 }) {
+export default function Recommendation({ index, name, youtubeLink, score, id, onUpvote = () => 0, onDownvote = () => 0 }) {
   const { upvoteRecommendation, errorUpvotingRecommendation } = useUpvoteRecommendation();
   const { downvoteRecommendation, errorDownvotingRecommendation } = useDownvoteRecommendation();
 
-  const idName = name.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  const idName = `recommendation-${index}`
 
   const handleUpvote = async () => {
     await upvoteRecommendation(id);
@@ -42,7 +42,7 @@ export default function Recommendation({ name, youtubeLink, score, id, onUpvote 
       <ReactPlayer id="title" url={youtubeLink} width="100%" height="100%" />
       <Row>
         <GoArrowUp id="upvote" size="24px" onClick={handleUpvote} />
-        {score}
+        <div id="score">{score}</div>
         <GoArrowDown id="downvote" size="24px" onClick={handleDownvote} />
       </Row>
     </Container>

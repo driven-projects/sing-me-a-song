@@ -15,6 +15,7 @@ export default function Random() {
 
   return (
     <Recommendation
+      index={0}
       {...recommendation}
       onUpvote={handleUpdate}
       onDownvote={handleUpdate}
