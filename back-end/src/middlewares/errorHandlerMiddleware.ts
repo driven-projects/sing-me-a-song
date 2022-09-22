@@ -3,7 +3,7 @@ import {
   AppError,
   errorTypeToStatusCode,
   isAppError,
-} from "../utils/errorUtils.js";
+} from "../utils/errorUtils";
 
 export function errorHandlerMiddleware(
   err: Error | AppError,

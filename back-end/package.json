@@ -1,12 +1,16 @@
 {
   "name": "typescript-back-template",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "test": "jest -i --no-cache"
+    "build":"tsc",
+    "dev": "nodemon ./src/server.ts",
+    "start":"node src/dist/server.js",
+    "test": "prisma migrate dev && jest -i --no-cache"
+  },
+  "prisma":{
+    "seed":"ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
