@@ -17,29 +17,31 @@ export async function recommendationFactory(){
 }
 
 export async function populateRecommendationsWithRandomScores(amount: number){
+
     for(let i =0; i < amount; i++){
-        const randomScore = Math.floor(Math.random()*10)
+        const randomScore = Math.floor(Math.random()*100)
 
         const recommendation = {
             name:faker.music.songName(),
             youtubeLink: "https://www.youtube.com/watch?v=h_D3VFfhvs4",
             score: randomScore
         }
+   
         await prisma.recommendation.create({data:recommendation})
     }  
+   
 }
 
 export async function getRecommendationsMock(amount: number){
     const recommendations = []
 
     for(let i =0; i < amount; i++){
-        const randomScore = Math.floor(Math.random()*10)
 
         const recommendation = {
             id:i,
             name:faker.music.songName(),
             youtubeLink: "https://www.youtube.com/watch?v=h_D3VFfhvs4",
-            score: randomScore
+            score: Math.floor(Math.random()*100)
         }
        
         recommendations.push(recommendation)

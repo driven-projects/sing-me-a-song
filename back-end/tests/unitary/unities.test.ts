@@ -198,34 +198,40 @@ describe("Testes para as funções de visualização de recomendações", () => 
     expect(result).rejects.toEqual(typeError);
   });
 
-  it("Retorna uma música aleatória com pontuação maior que 10 caso a incidência de rota seja maior que 70%",async () => {
-    const recommendation = await recommendationFactory()
+  it("Retorna uma música aleatória com score maior que 10",async () => {
+    const recommendations = await getRecommendationsMock(15)
+    console.log(recommendations)
+    const recommendationsWithScoreGreaterThan10 = recommendations.filter(recommendation => recommendation.score > 10)
 
-
-    jest.spyOn(recommendationRepository, 'findAll').mockImplementation(():any => {
-        return [{
-            ...recommendation, id:1, score:12
-        }]
+    jest.spyOn(Math, "random").mockImplementationOnce(():any  =>{
+      return 0.4
     })
-    const result = await recommendationService.getRandom()
   
+    jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce(():any => {
+      return recommendationsWithScoreGreaterThan10
+  })
+    
+    const result = await recommendationService.getRandom()
     expect(result.score).toBeGreaterThan(10)
 
   })
 
-  it("Retorna uma música aleatória com pontuação entre -5 e 10 caso a incidência de rota seja maior que 30%", async () => {
-    const recommendation = await recommendationFactory()
+  // it("Retorna uma música aleatória com score entre -5 e 10", async () => {
+  //   const recommendations = await getRecommendationsMock(15)
+     
+  //   console.log(recommendations)
 
-    jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce(():any => {
-        return [{
-            ...recommendation, id:1, score:7
-        }]
-    })
-    const result = await recommendationService.getRandom()
-
-    expect(result.score).toBeGreaterThan(-5)
-    expect(result.score).toBeLessThanOrEqual(10)
-  })
+  //   const recommendationsWithScoreLessThan10 = recommendations.filter(recommendation => recommendation.score < 10 && recommendation.score > -5)
+    
+  //   jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce(():any => {
+  //       return recommendationsWithScoreLessThan10
+  //   })
+    
+  //   const result = await recommendationService.getRandom()
+   
+  //   expect(result.score).toBeGreaterThan(-5)
+  //   expect(result.score).toBeLessThanOrEqual(10)
+  // })
 
   it("Retorna not_found caso não haja nenhuma música cadastrada", async () => {
     jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce((): any => {

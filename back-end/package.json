@@ -7,8 +7,8 @@
     "build": "tsc",
     "dev": "nodemon ./src/server.ts",
     "start": "node src/dist/server.js",
-    "test:integration":"jest integrations.test.ts -i --no-cache",
-    "test:unit": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest unities.test.ts -i --no-cache"
+    "test:integration":"dotenv -e .env.test jest integrations.test.ts -i --no-cache",
+    "test:unit": "jest unities.test.ts -i --no-cache"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"

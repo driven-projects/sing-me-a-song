@@ -3,6 +3,7 @@ import supertest from "supertest"
 import {prisma} from "../../src/database/database"
 import {Recommendation} from "@prisma/client"
 import {recommendationFactory, populateRecommendationsWithRandomScores} from "../factories/recommendationFactory"
+import { recommendationService } from "../../src/services/recommendationsService"
 
 type RecommendationDataType = Recommendation
 
@@ -142,21 +143,43 @@ describe("Testa a rota de visualização de recomendações", () => {
       expect(status).toEqual(404)
    })
 
-   it("Retorna 200 e uma recomendação aleatória", async () => {
-      const recommendation = await recommendationFactory()
+   it("Retorna 200 e uma recomendação aleatória com score acima de 10 pontos", async () => {
+     await populateRecommendationsWithRandomScores(15)
+    
+      jest.spyOn(Math, "random").mockImplementationOnce((): any => {
+         return 0.5
+      })
 
-      await supertest(app).post("/recommendations").send(recommendation)
       const {status, body: recommendationOnDB} = await supertest(app).get("/recommendations/random")
 
       expect(status).toEqual(200)
       expect(recommendationOnDB).not.toBeNull()
+      expect(recommendationOnDB.score).toBeGreaterThan(10)
    })
+
+   it("Retorna 200 e uma recomendação aleatória com score entre -5 e 10 pontos", async () => {
+      await populateRecommendationsWithRandomScores(15)
+   
+      jest.spyOn(Math, "random").mockImplementationOnce((): any => {
+         return 0.8
+      })
+
+      const {status, body: recommendationOnDB} = await supertest(app).get("/recommendations/random")
+      expect(status).toEqual(200)
+      expect(recommendationOnDB).not.toBeNull()
+      expect(recommendationOnDB.score).toBeGreaterThan(-5)
+      expect(recommendationOnDB.score).toBeLessThan(10)
+     
+      
+   })
+
+
 
    it("Retorna 200 e as recomendações ordenadas pelo score em ordem decrescente", async () => {
       const amount = 5
       await populateRecommendationsWithRandomScores(amount)
 
-      const {status, body} = await supertest(app).get("/recommendations/top/4")
+      const {status, body} = await supertest(app).get(`/recommendations/top/${amount}`)
       const isSorted = isSortedFn(body)
 
       expect(status).toEqual(200)
