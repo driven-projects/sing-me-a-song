@@ -1,11 +1,17 @@
 {
   "name": "typescript-back-template",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts"
+    "build": "tsc",
+    "dev": "nodemon ./src/server.ts",
+    "start": "node src/dist/server.js",
+    "test:integration":"dotenv -e .env.test jest integrations.test.ts -i --no-cache",
+    "test:unit": "jest unities.test.ts -i --no-cache"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +27,7 @@
     "dotenv-cli": "^5.1.0",
     "eslint": "^7.32.0",
     "jest": "^28.0.3",
+    "jest-cli": "^29.0.3",
     "nodemon": "^2.0.12",
     "prisma": "^3.13.0",
     "supertest": "^6.1.3",
@@ -29,6 +36,7 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.5.0",
     "@prisma/client": "^3.13.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
