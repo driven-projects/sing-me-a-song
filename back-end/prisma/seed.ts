@@ -1,5 +1,4 @@
 import {prisma} from "../src/database/database"
-import {CreateRecommendationData} from "../src/services/recommendationsService"
 
 import {faker} from "@faker-js/faker"
  async function main(){

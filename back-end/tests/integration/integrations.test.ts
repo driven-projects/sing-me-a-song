@@ -1,8 +1,8 @@
-import app from "../src/app"
+import app from "../../src/app"
 import supertest from "supertest"
-import {prisma} from "../src/database/database"
+import {prisma} from "../../src/database/database"
 import {Recommendation} from "@prisma/client"
-import {recommendationFactory, populateRecommendationsWithRandomScores} from "./factories/recommendationFactory"
+import {recommendationFactory, populateRecommendationsWithRandomScores} from "../factories/recommendationFactory"
 
 type RecommendationDataType = Recommendation
 
@@ -152,13 +152,6 @@ describe("Testa a rota de visualização de recomendações", () => {
       expect(recommendationOnDB).not.toBeNull()
    })
 
-   it("Retorna 404 caso não haja nenhuma música cadastrada", async () => {
-      const {status} = await supertest(app).get("/recommendations/random")
-
-      expect(status).toEqual(404)
-
-   })
-
    it("Retorna 200 e as recomendações ordenadas pelo score em ordem decrescente", async () => {
       const amount = 5
       await populateRecommendationsWithRandomScores(amount)
@@ -170,8 +163,12 @@ describe("Testa a rota de visualização de recomendações", () => {
       expect(body).toBeInstanceOf(Array)
       expect(body.length).toBeGreaterThanOrEqual(1)
       expect(isSorted).toEqual(true)
-  
+   })
 
+   it("Retorna 404 caso não haja nenhuma música cadastrada", async () => {
+      const {status} = await supertest(app).get("/recommendations/random")
+
+      expect(status).toEqual(404)
    })
 })
 
@@ -183,3 +180,7 @@ function isSortedFn(arr: object[]){
       }
       return true
 }
+
+afterAll(async () => {
+   await prisma.$disconnect()
+})

@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build":"tsc",
+    "build": "tsc",
     "dev": "nodemon ./src/server.ts",
-    "start":"node src/dist/server.js",
-    "test": "prisma migrate dev && jest -i --no-cache"
+    "start": "node src/dist/server.js",
+    "test:integration":"jest integrations.test.ts -i --no-cache",
+    "test:unit": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest unities.test.ts -i --no-cache"
   },
-  "prisma":{
-    "seed":"ts-node prisma/seed.ts"
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "dotenv-cli": "^5.1.0",
     "eslint": "^7.32.0",
     "jest": "^28.0.3",
+    "jest-cli": "^29.0.3",
     "nodemon": "^2.0.12",
     "prisma": "^3.13.0",
     "supertest": "^6.1.3",
