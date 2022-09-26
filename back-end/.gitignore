@@ -2,6 +2,6 @@ dist
 node_modules
 .env*
 
-coverage
+/coverage
 
 !.env.example
