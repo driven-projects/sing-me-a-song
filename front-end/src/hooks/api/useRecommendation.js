@@ -13,6 +13,6 @@ export default function useRecommendation() {
     recommendation: data,
     loadingRecommendation: loading,
     getRecommendation: act,
-    updateRecommendation: update
+    updateRecommendation: update,
   };
 }

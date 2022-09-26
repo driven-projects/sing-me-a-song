@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664032086106" clover="3.2.0">
-  <project timestamp="1664032086107" name="All files">
+<coverage generated="1664219863450" clover="3.2.0">
+  <project timestamp="1664219863450" name="All files">
     <metrics statements="32" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9" elements="47" coveredelements="47" complexity="0" loc="32" ncloc="32" packages="1" files="1" classes="1"/>
     <file name="recommendationsService.ts" path="/home/sams/project/projeto21-sing-me-a-song/back-end/src/services/recommendationsService.ts">
       <metrics statements="32" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>

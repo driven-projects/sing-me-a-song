@@ -15,17 +15,17 @@ export default function Menu() {
         Home
       </MenuItem>
 
-      <MenuItem onClick={() => navigate("/top")}>
+      <MenuItem onClick={() => navigate("/top")} data-test-id="top">
         <HiTrendingUp />
         Top
       </MenuItem>
 
-      <MenuItem onClick={() => navigate("/random")}>
+      <MenuItem onClick={() => navigate("/random")} data-test-id="random">
         <FiShuffle />
         Random
       </MenuItem>
     </StyledMenu>
-  )
+  );
 }
 
 const StyledMenu = styled.div`

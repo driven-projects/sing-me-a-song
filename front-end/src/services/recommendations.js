@@ -25,7 +25,7 @@ export async function listTop() {
   return response.data;
 }
 
-export async function get(id = 'random') {
+export async function get(id = "random") {
   const response = await api.get(`/recommendations/${id}`);
   return response.data;
 }

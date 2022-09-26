@@ -216,22 +216,6 @@ describe("Testes para as funções de visualização de recomendações", () => 
 
   })
 
-  // it("Retorna uma música aleatória com score entre -5 e 10", async () => {
-  //   const recommendations = await getRecommendationsMock(15)
-     
-  //   console.log(recommendations)
-
-  //   const recommendationsWithScoreLessThan10 = recommendations.filter(recommendation => recommendation.score < 10 && recommendation.score > -5)
-    
-  //   jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce(():any => {
-  //       return recommendationsWithScoreLessThan10
-  //   })
-    
-  //   const result = await recommendationService.getRandom()
-   
-  //   expect(result.score).toBeGreaterThan(-5)
-  //   expect(result.score).toBeLessThanOrEqual(10)
-  // })
 
   it("Retorna not_found caso não haja nenhuma música cadastrada", async () => {
     jest.spyOn(recommendationRepository, 'findAll').mockImplementationOnce((): any => {

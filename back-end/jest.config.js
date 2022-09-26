@@ -12,7 +12,9 @@ module.exports = {
     "database",
     "controllers",
     "schemas",
+
     "jestGlobalMocks.ts",
+    "<rootDir>/src/services/testsService.ts",
     "<rootDir>/src/server.ts",
     "<rootDir>/src/utils",
     "<rootDir>/src/config",
